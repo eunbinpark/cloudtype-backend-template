@@ -1,7 +1,9 @@
 package io.cloudtype.waitlist.controller;
 
 import io.cloudtype.waitlist.exception.ResourceNotFoundException;
+import io.cloudtype.waitlist.model.Drug;
 import io.cloudtype.waitlist.model.Guest;
+import io.cloudtype.waitlist.repository.DrugRepository;
 import io.cloudtype.waitlist.repository.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,13 @@ public class GuestController {
 
     @Autowired
     private GuestRepository guestRepository;
+    private DrugRepository drugRepository;
+
+    @GetMapping
+    public ResponseEntity<Drug> searchDrugs(@RequestParam String tki, @RequestParam String drug) {
+        Drug drugA = drugRepository.searchDrug(tki, drug);
+        return ResponseEntity.ok(drugA);
+    }
 
     @GetMapping
     public List<Guest> getAllGuests() {
