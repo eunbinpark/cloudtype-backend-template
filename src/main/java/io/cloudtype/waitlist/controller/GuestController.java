@@ -21,7 +21,7 @@ public class GuestController {
     private GuestRepository guestRepository;
     private DrugRepository drugRepository;
 
-    @GetMapping
+    @GetMapping("/drug")
     public ResponseEntity<Drug> searchDrugs(@RequestParam String tki, @RequestParam String drug) {
         Drug drugA = drugRepository.searchDrug(tki, drug);
         return ResponseEntity.ok(drugA);
