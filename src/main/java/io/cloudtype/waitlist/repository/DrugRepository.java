@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface DrugRepository extends JpaRepository<Drug, Long> {
+public interface DrugRepository{
     @Query(value = "SELECT i.ingredient_eng as ingredient, d.tkiddi_kor as ddi, i.ingredient_efficacy efficacy " +
             "FROM Connect c " +
             "JOIN Drug_Drug_Interaction d ON c.tkiddi_id = d.tkiddi_id " +
