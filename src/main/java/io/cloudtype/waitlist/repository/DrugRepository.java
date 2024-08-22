@@ -5,7 +5,9 @@ import io.cloudtype.waitlist.model.Drug;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface DrugRepository{
     @Query(value = "SELECT i.ingredient_eng as ingredient, d.tkiddi_kor as ddi, i.ingredient_efficacy efficacy " +
             "FROM Connect c " +
