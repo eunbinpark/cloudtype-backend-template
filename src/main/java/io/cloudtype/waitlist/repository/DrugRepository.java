@@ -16,6 +16,6 @@ public interface DrugRepository extends JpaRepository<Drug, Long> {
             "JOIN Ingredient i ON c.ingredient_id = i.ingredient_id " +
             "JOIN Brandname b ON i.ingredient_id = b.ingredient_id " +
             "WHERE t.tki_eng = :tki " +
-            "AND b.brandname = :drug", nativeQuery = true)
+            "AND b.brandname = :drug")
     DrugDto searchDrug(@Param("tki") String tki, @Param("drug") String drug);
 }
