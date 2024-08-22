@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface DrugRepository extends JpaRepository<Drug, Long> {
-    @Query(value = "SELECT i.ingredient_eng AS ingredient, d.tkiddi_kor AS ddi, i.ingredient_efficacy AS efficacy " +
+    @Query(value = "SELECT new io.cloudtype.waitlist.dto.DrugDto(i.ingredient_eng AS ingredient, d.tkiddi_kor AS ddi, i.ingredient_efficacy AS efficacy) " +
             "FROM Connect c " +
             "JOIN Drug_Drug_Interaction d ON c.tkiddi_id = d.tkiddi_id " +
             "JOIN TKI t ON c.tki_id = t.tki_id " +
