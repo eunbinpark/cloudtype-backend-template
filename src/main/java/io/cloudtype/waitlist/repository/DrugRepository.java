@@ -1,13 +1,13 @@
 package io.cloudtype.waitlist.repository;
 
-import io.cloudtype.waitlist.model.Drug;
+import io.cloudtype.waitlist.dto.DrugDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface DrugRepository extends JpaRepository<Drug, Long> {
+public interface DrugRepository extends JpaRepository<DrugDto, Long> {
     @Query(value = "SELECT i.ingredient_eng AS ingredient, d.tkiddi_kor AS ddi, i.ingredient_efficacy AS efficacy " +
             "FROM Connect c " +
             "JOIN Drug_Drug_Interaction d ON c.tkiddi_id = d.tkiddi_id " +
@@ -16,5 +16,5 @@ public interface DrugRepository extends JpaRepository<Drug, Long> {
             "JOIN Brandname b ON i.ingredient_id = b.ingredient_id " +
             "WHERE t.tki_eng = :tki " +
             "AND b.brandname = :drug", nativeQuery = true)
-    Drug searchDrug(@Param("tki") String tki, @Param("drug") String drug);
+    DrugDto searchDrug(@Param("tki") String tki, @Param("drug") String drug);
 }
