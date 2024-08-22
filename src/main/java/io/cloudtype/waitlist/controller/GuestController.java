@@ -19,6 +19,7 @@ public class GuestController {
 
     @Autowired
     private GuestRepository guestRepository;
+    @Autowired
     private DrugRepository drugRepository;
 
     @GetMapping("/drug")
