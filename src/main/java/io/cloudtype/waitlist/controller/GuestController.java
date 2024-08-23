@@ -35,8 +35,8 @@ public class GuestController {
     }
 
     @GetMapping("/efficacy")
-    public ResponseEntity<EfficacyDto> searchEfficacy(@RequestParam String tki, @RequestParam String efficacy) {
-        EfficacyDto drugs = efficacyService.searchEfficacy(tki, efficacy);
+    public ResponseEntity<List<EfficacyDto>> searchEfficacy(@RequestParam String tki, @RequestParam String efficacy) {
+        List<EfficacyDto> drugs = efficacyService.searchEfficacy(tki, efficacy);
         return ResponseEntity.ok(drugs);
     }
 
