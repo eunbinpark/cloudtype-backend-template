@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.cloudtype.waitlist.mapper.EfficacyMapper">
+    <select id="searchEfficacy" resultType="io.cloudtype.waitlist.dto.EfficacyDtoDto">
+        select i.ingredient_eng, b.brandname, p.company_name
+        from Brandname b
+                 join Ingredient i
+                      on b.ingredient_id = i.ingredient_id
+                 join Pharma_Ceutical_Company p
+                      on b.pcc_id = p.pcc_id
+        where b.ingredient_id
+            in (select ingredient_id from Ingredient where ingredient_efficacy like CONCAT('%', #{efficacy}, '%'))
+          and b.ingredient_id
+            not in (select ingredient_id from Connect where tki_id = (select tki_id from TKI where TKI_eng = #{tki} and tki_kor = '금기'));
+    </select>
+</mapper>
