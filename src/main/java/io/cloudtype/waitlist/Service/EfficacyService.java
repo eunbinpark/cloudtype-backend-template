@@ -15,6 +15,6 @@ public class EfficacyService {
     }
 
     public EfficacyDto searchEfficacy(String tki, String efficacy) {
-        return efficacyMapper.selectEfficacy(tki, efficacy);
+        return efficacyMapper.searchEfficacy(tki, efficacy);
     }
 }

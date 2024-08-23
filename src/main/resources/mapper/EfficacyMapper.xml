@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="io.cloudtype.waitlist.mapper.EfficacyMapper">
-    <select id="searchEfficacy" resultType="io.cloudtype.waitlist.dto.EfficacyDtoDto">
+    <select id="searchEfficacy" resultType="io.cloudtype.waitlist.dto.EfficacyDto">
         select i.ingredient_eng, b.brandname, p.company_name
         from Brandname b
                  join Ingredient i
