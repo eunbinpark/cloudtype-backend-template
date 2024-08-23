@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 public class EfficacyDto {
     private String ingredient;
+    private String ingredientkor;
     private String brandname;
     private String company;
 }
