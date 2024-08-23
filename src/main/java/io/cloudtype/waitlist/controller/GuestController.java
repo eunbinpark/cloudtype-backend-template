@@ -1,5 +1,6 @@
 package io.cloudtype.waitlist.controller;
 
+import io.cloudtype.waitlist.Service.DrugService;
 import io.cloudtype.waitlist.dto.DrugDto;
 import io.cloudtype.waitlist.exception.ResourceNotFoundException;
 import io.cloudtype.waitlist.model.Drug;
@@ -21,11 +22,11 @@ public class GuestController {
     @Autowired
     private GuestRepository guestRepository;
     @Autowired
-    private DrugRepository drugRepository;
+    private DrugService drugService;
 
     @GetMapping("/drug")
     public ResponseEntity<DrugDto> searchDrugs(@RequestParam String tki, @RequestParam String drug) {
-        DrugDto drugA = drugRepository.searchDrug(tki, drug);
+        DrugDto drugA = drugService.searchDrug(tki, drug);
         return ResponseEntity.ok(drugA);
     }
 

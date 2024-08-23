@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.cloudtype.waitlist.mapper.DrugMapper">
+
+    <select id="searchDrug" resultType="io.cloudtype.waitlist.dto.DrugDto">
+        SELECT i.ingredient_eng as ingredient, d.tkiddi_kor as ddi, i.ingredient_efficacy as efficacy
+        FROM Connect c
+                 JOIN Drug_Drug_Interaction d ON c.tkiddi_id = d.tkiddi_id
+                 JOIN TKI t ON c.tki_id = t.tki_id
+                 JOIN Ingredient i ON c.ingredient_id = i.ingredient_id
+                 JOIN Brandname b ON i.ingredient_id = b.ingredient_id
+        WHERE t.tki_eng = #{tki}
+          AND b.brandname = #{drug}
+    </select>
+
+</mapper>
