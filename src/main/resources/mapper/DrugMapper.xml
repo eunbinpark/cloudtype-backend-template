@@ -5,14 +5,14 @@
 <mapper namespace="io.cloudtype.waitlist.mapper.DrugMapper">
 
     <select id="searchDrug" resultType="io.cloudtype.waitlist.dto.DrugDto">
-        SELECT i.ingredient_eng as ingredient, d.tkiddi_kor as ddi, i.ingredient_efficacy as efficacy
+        SELECT i.ingredient_eng as ingredient, coalesce(d.tkiddi_kor, "금기 또는 주의를 요하는 약물 리스트에 없는 약물입니다.") as ddi, i.ingredient_efficacy as efficacy
         FROM Connect c
                  JOIN Drug_Drug_Interaction d ON c.tkiddi_id = d.tkiddi_id
                  JOIN TKI t ON c.tki_id = t.tki_id
                  JOIN Ingredient i ON c.ingredient_id = i.ingredient_id
                  JOIN Brandname b ON i.ingredient_id = b.ingredient_id
-        WHERE t.tki_eng = #{tki}
-          AND b.brandname = #{drug}
+        WHERE (t.tki_eng like CONCAT('%', #{tki}, '%')) or t.tki_kor like CONCAT('%', #{tki}, '%')) or t.tki_product_kor like CONCAT('%', #{tki}, '%')))
+          AND (b.brandname like CONCAT('%', #{drug}, '%')) or i.ingredient_eng like CONCAT('%', #{drug}, '%')))
     </select>
 
 </mapper>
