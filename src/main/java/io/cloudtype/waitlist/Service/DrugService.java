@@ -20,6 +20,7 @@ public class DrugService {
             result.setDdi("금기 또는 주의를 요하는 약물 리스트에 없는 약물입니다.");
             result.setEfficacy("정보없음");
         }
+        System.out.println("result: " + result);
         return result;
     }
 }
