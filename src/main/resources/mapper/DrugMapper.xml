@@ -17,7 +17,8 @@
             OR t.tki_kor LIKE CONCAT('%', #{tki}, '%')
             OR t.tki_product_kor LIKE CONCAT('%', #{tki}, '%'))
           AND (b.brandname LIKE CONCAT('%', #{drug}, '%')
-            OR i.ingredient_eng LIKE CONCAT('%', #{drug}, '%'))
+            OR i.ingredient_eng = #{drug}
+            OR i.ingredient_kor = #{drug})
     </select>
 
 </mapper>

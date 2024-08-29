@@ -11,8 +11,17 @@
                  join Pharma_Ceutical_Company p
                       on b.pcc_id = p.pcc_id
         where b.ingredient_id
-            in (select ingredient_id from Ingredient where ingredient_efficacy like CONCAT('%', #{efficacy}, '%'))
+            in (select ingredient_id
+                from Ingredient
+                where ingredient_efficacy like CONCAT('%', #{efficacy}, '%'))
           and b.ingredient_id
-            not in (select ingredient_id from Connect where tki_id = (select tki_id from TKI where TKI_eng = #{tki} and tki_kor = '금기'));
+            not in (select ingredient_id
+                    from Connect
+                    where tki_id = (select tki_id
+                                    from TKI
+                                    where TKI_eng like CONCAT('%', #{tki}, '%')
+                                        or TKI_kor like CONCAT('%', #{tki}, '%')
+                                        or TKI_product_kor like CONCAT('%', #{tki}, '%'))
+                    and TKIDDI_id = 'tkiddi_01');
     </select>
 </mapper>
