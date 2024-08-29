@@ -17,6 +17,7 @@ public class DrugService {
     public DrugDto searchDrug(String tki, String drug){
         DrugDto result = drugMapper.searchDrug(tki, drug);
         if (result == null) {
+            result = new DrugDto(); // 새로운 객체를 생성
             result.setDdi("금기 또는 주의를 요하는 약물 리스트에 없는 약물입니다.");
             result.setEfficacy("정보없음");
         }
