@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="io.cloudtype.waitlist.mapper.EfficacyMapper">
     <select id="searchEfficacy" resultType="io.cloudtype.waitlist.dto.EfficacyDto">
-        select p.ingredient_kor as ingredient, p.product_kor as brandname, c.company_name as company
+        select p.ingredient_kor as ingredient, p.product_kor as brandname, c.company_name as company, p.product_efficacy as efficacy
         from product p
                  join Pharma_Ceutical_Company c
                       on c.pcc_id = p.PCC_id

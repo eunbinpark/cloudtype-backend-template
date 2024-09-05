@@ -11,4 +11,5 @@ public class EfficacyDto {
     private String ingredientkor;
     private String brandname;
     private String company;
+    private String efficacy;
 }
