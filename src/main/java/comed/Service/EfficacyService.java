@@ -1,8 +1,7 @@
-package io.cloudtype.waitlist.Service;
+package comed.Service;
 
-import io.cloudtype.waitlist.dto.DrugDto;
-import io.cloudtype.waitlist.dto.EfficacyDto;
-import io.cloudtype.waitlist.mapper.EfficacyMapper;
+import comed.dto.EfficacyDto;
+import comed.mapper.EfficacyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,7 @@ public class EfficacyService {
         this.efficacyMapper = efficacyMapper;
     }
 
-    public List<EfficacyDto> searchEfficacy(String tki, String efficacy) {
+    public List<comed.dto.EfficacyDto> searchEfficacy(String tki, String efficacy) {
         List<EfficacyDto> result = efficacyMapper.searchEfficacy(tki, efficacy);
         if (result == null || result.isEmpty()) {
             result = new ArrayList<>();

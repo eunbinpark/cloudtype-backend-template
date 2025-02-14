@@ -1,6 +1,9 @@
-package io.cloudtype.waitlist.dto;
+package comed.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter

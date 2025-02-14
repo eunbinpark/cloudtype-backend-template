@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.cloudtype.waitlist.mapper.DrugMapper">
+<mapper namespace="comed.mapper.DrugMapper">
 
-    <select id="searchDrug" resultType="io.cloudtype.waitlist.dto.DrugDto">
+    <select id="searchDrug" resultType="comed.dto.DrugDto">
         SELECT DISTINCT i.ingredient_eng as ingredient,
                         d.tkiddi_kor as ddi,
                         i.ingredient_efficacy as efficacy

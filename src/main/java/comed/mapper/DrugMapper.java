@@ -1,6 +1,6 @@
-package io.cloudtype.waitlist.mapper;
+package comed.mapper;
 
-import io.cloudtype.waitlist.dto.DrugDto;
+import comed.dto.DrugDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

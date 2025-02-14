@@ -1,7 +1,7 @@
-package io.cloudtype.waitlist.Service;
+package comed.Service;
 
-import io.cloudtype.waitlist.dto.DrugDto;
-import io.cloudtype.waitlist.mapper.DrugMapper;
+import comed.dto.DrugDto;
+import comed.mapper.DrugMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
